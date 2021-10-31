@@ -1,0 +1,95 @@
+{
+	"name": "cricketscore",
+	"displayName": "cricketScore",
+	"description": "live cricket score",
+	"version": "0.0.1",
+	"publisher": "anoop-dev",
+	"engines": {
+		"vscode": "^1.61.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*",
+		"onCommand:cricketscore.liveScore"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "live-cricket-match",
+					"title": "Cricket Scoreboard",
+					"icon": "resources/images/icons8-cricket-80.png"
+				}
+			]
+		},
+		"views": {
+			"live-cricket-match": [
+				{
+					"id": "liveMatches",
+					"name": "ScoreBoard",
+					"icon": "resources/images/icons8-cricket-80.png",
+					"contextualTitle": "Cricket Scoreboard"
+				}
+			],
+			"explorer": [
+				{
+					"id": "jsonOutline",
+					"name": "Json Outline",
+					"when": "jsonOutlineEnabled"
+				},
+				{
+					"id": "ftpExplorer",
+					"name": "FTP Explorer"
+				},
+				{
+					"id": "fileExplorer",
+					"name": "File Explorer"
+				},
+				{
+					"id": "testView",
+					"name": "Test View"
+				},
+				{
+					"id": "testViewDragAndDrop",
+					"name": "Test View Drag and Drop"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "cricketscore.liveScore",
+				"title": "Live Score"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.61.0",
+		"@types/glob": "^7.1.4",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@typescript-eslint/eslint-plugin": "^4.31.1",
+		"@typescript-eslint/parser": "^4.31.1",
+		"eslint": "^7.32.0",
+		"glob": "^7.1.7",
+		"mocha": "^9.1.1",
+		"typescript": "^4.4.3",
+		"@vscode/test-electron": "^1.6.2"
+	},
+	"dependencies": {
+		"axios": "^0.24.0",
+		"fetch": "^1.1.0",
+		"htmlparser2": "^7.1.2",
+		"moment": "^2.29.1"
+	}
+}
